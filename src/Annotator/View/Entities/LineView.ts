@@ -64,7 +64,7 @@ export namespace LineView {
         }
 
         render(context: SVG.Text) {
-            this.svgElement = context.tspan(this.store.text).newLine();
+            this.svgElement = context.tspan(this.store.text).newLine().dx(35);
             (this.svgElement as any).AnnotatorElement = this;
         }
 
@@ -97,7 +97,7 @@ export namespace LineView {
                 this.xCoordinateOfChar.push((this.svgElement.node as any).getExtentOfChar(i).x);
             }
             let last = (this.svgElement.node as any).getExtentOfChar(this.store.text.length - 1);
-            this.height = last.height;
+            this.height = last.height + 10;
             this.xCoordinateOfChar.push(last.x + last.width);
         }
 

@@ -31,6 +31,13 @@ export class Dispatcher {
                 this.store.connectionRepo.add(connection);
             }
         } else if (action instanceof Action.Connection.CreateConnectionAction) {
+            // 创建 Label 链接
+            // console.log('*************** 创建 Connection start ***************');
+            // console.log('categoryId', action.categoryId);
+            // console.log('fromId', action.fromId);
+            // console.log('toId', action.toId);
+            // console.log('store', this.store);
+            // console.log('*************** 创建 Connection end ***************');
             this.store.connectionRepo.add(new Connection.Entity(null, action.categoryId, action.fromId, action.toId, this.store));
         } else if (action instanceof Action.Connection.DeleteConnectionAction) {
             this.store.connectionRepo.delete(action.id);

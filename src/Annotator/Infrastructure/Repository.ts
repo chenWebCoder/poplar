@@ -49,6 +49,7 @@ export namespace Base {
             if (alreadyHas) {
                 this.eventEmitter.emit('updated', key);
             } else {
+                // console.log('-----------', this.nextId, key);
                 if (this.nextId < key + 1) {
                     this.nextId = key + 1;
                 }
@@ -60,6 +61,7 @@ export namespace Base {
         add(value: T): number {
             if ('id' in value) {
                 let id: number = (value as any).id;
+                // console.log('新创建链接关系ID：', id);
                 assert(!this.has(id), `reAdd ${id}!`);
                 if (id !== null) {
                     this.set(id, value);

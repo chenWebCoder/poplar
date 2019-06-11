@@ -115,7 +115,7 @@ export class TopContext {
         }
         for (let element of this.elements) {
             if (element instanceof ConnectionView.Entity)
-                element.eliminateOverlapping();
+                element.eliminateOverlapping();              
         }
         let maxLayer = 0;
         for (let it of this.elements) {
@@ -175,7 +175,7 @@ export class TopContext {
         this.elements.add(element);
         element.preRender();
         element.initPosition();
-        element.eliminateOverlapping();
+        element.eliminateOverlapping();        
         element.render();
         element.postRender();
         if (originHeight !== this.height) {

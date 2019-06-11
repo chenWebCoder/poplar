@@ -29,6 +29,6 @@
   },
   "scripts": {
     "start:dev": "webpack-dev-server --config webpack.dev.js",
-    "build": "webpack -p --config webpack.prod.js"
+    "build": "rm -rf ./dist && webpack -p --config webpack.prod.js"
   }
 }

@@ -80,6 +80,7 @@ export namespace LabelView {
          * Thanks to Alex Hornbake (function for generate curly bracket path)
          * @see http://bl.ocks.org/alexhornbake/6005176
          */
+        // 绘制标签上的括号
         private bracket(x1, y1, x2, y2, width, q = 0.6) {
             //Calculate unit vector
             let dx = x1 - x2;
@@ -102,7 +103,7 @@ export namespace LabelView {
             return this.annotationElement.path(`M${x1},${y1}Q${qx1},${qy1},${qx2},${qy2}T${tx1},${ty1}M${x2},${y2}Q${qx3},${qy3},${qx4},${qy4}T${tx1},${ty1}`)
                 .fill('none').stroke({
                     color: this.category.borderColor,
-                    width: 1
+                    width: 2
                 });
         }
 
@@ -138,10 +139,11 @@ export namespace LabelView {
 
         private renderHighlight() {
             let box = this.highlightElementBox;
-            this.highLightElement = this.svgElement.rect(box.width, box.height);
+            // 标签 rect
+            this.highLightElement = this.svgElement.rect(box.width, box.height - 10);
             this.highLightElement.fill({
                 color: this.category.color,
-                opacity: 0.5
+                opacity: 1
             }).dx(box.x);
         }
 

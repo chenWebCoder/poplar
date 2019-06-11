@@ -212,7 +212,7 @@ typings/
 .nuxt
 
 # vuepress build output
-.vuepress/dist
+# .vuepress/dist
 
 # Serverless directories
 .serverless
@@ -226,4 +226,6 @@ typings/
 *.js
 !/webpack.dev.js
 !/webpack.prod.js
-/dist/
+# /dist/
+
+/node_modules

@@ -6,20 +6,28 @@ export class TwoLabelsClickedHandler {
     markerElement = null;
 
     constructor(public root: Annotator) {
+        // Label 点击事件
         this.root.on('labelClicked', (id: number) => {
             if (this.lastSelection === null) {
+                // 选择第一个、没有选择第二个 Label
                 this.lastSelection = id;
                 this.svgElement = this.root.view.svgDoc.path(`M0 0L0 0`).stroke('black');
                 this.markerElement = this.svgElement.marker('end', 5, 5, add => {
                     add.polyline('0,0 5,2.5 0,5 0.2,2.5');
                 });
             } else {
+                /**
+                 * 选中第一个、选中第二个 Lable，定义触发器 twoLabelsClicked
+                 * this.lastSelection：选中的第一个 Label ID
+                 * id：选中的第二个 Label ID
+                 */
                 this.root.emit('twoLabelsClicked', this.lastSelection, id);
                 this.svgElement.remove();
                 this.svgElement = null;
                 this.lastSelection = null;
             }
         });
+        // SVG 鼠标抬起事件
         this.root.view.svgDoc.on('mousemove', (e) => {
             if (this.svgElement !== null) {
                 this.markerElement.remove();

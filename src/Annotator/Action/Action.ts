@@ -43,6 +43,7 @@ export namespace Action {
             }
         }
 
+        // 监听器出发后，执行 Action.Connection.Create
         export function Create(categoryId: number, fromId: number, toId: number) {
             return new CreateConnectionAction(categoryId, fromId, toId);
         }

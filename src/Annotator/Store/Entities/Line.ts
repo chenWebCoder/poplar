@@ -4,6 +4,7 @@ import {assert} from "../../Infrastructure/Assert";
 import {Label} from "./Label";
 import {Connection} from "./Connection";
 
+// 一行文本
 export namespace Line {
     export class Entity {
         constructor(
@@ -62,12 +63,12 @@ export namespace Line {
             }
             let endIndex = startIndex;
             while (
-                !(/[！!。.？?"\n]/.test(allContent[endIndex]))
+                !(/[！!。？?"\n]/.test(allContent[endIndex]))
                 && endIndex < allContent.length
                 && endIndex - startIndex < root.config.maxLineWidth) {
                 ++endIndex;
             }
-            while (/[！!。.？?”"a-zA-Z]/.test(allContent[endIndex]) && endIndex < allContent.length) {
+            while (/[！!。？?”"a-zA-Z]/.test(allContent[endIndex]) && endIndex < allContent.length) {
                 ++endIndex;
             }
             assert(startIndex !== endIndex, "startIndex should never equals to endIndex in divideSentences!");
