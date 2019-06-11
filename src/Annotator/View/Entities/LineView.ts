@@ -64,7 +64,7 @@ export namespace LineView {
         }
 
         render(context: SVG.Text) {
-            this.svgElement = context.tspan(this.store.text).newLine().dx(35);
+            this.svgElement = context.tspan(this.store.text).newLine().dx(30);
             (this.svgElement as any).AnnotatorElement = this;
         }
 

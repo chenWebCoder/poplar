@@ -45,7 +45,7 @@ export abstract class TopContextUser {
         let width = this.width;
         // if ([...allElementsInThisLayer.keys()].length) return true;
         for (let other of allElementsInThisLayer) {
-            // console.log('---->', other);
+            console.log('---->', other);
             // if (other) xreturn true;
 
             let thisRightX = thisLeftX + width;
